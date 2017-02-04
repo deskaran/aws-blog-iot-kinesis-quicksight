@@ -11,9 +11,9 @@ This is the code repository for sample code to locally generate IoT device data 
 
 ### Script Details
 
-The script generates random values (within a reasonable range) for each of the four parameters- Flow, Temperature, Humidity and Sound. You can tweak the values by changing the *random.randint(min, max)* values corresponding to each parameter. 
+The script generates random values (within a reasonable range) for each of the four parameters- Flow, Temperature, Humidity and Sound. You can tweak the values by changing the *`random.randint(min, max)`* values corresponding to each parameter. 
 
-The script is set to generate messages of each of the four types in a fixed percentage. If you want more or less messages of a particular parameter, you can change the values of *rnd* in the *if...else* part of the code. 
+The script is set to generate messages of each of the four types in a fixed percentage. If you want more or less messages of a particular parameter, you can change the values of *`rnd`* in the *`if...else`* part of the code. 
 
 ### Running Example
 
