@@ -1,3 +1,5 @@
+# Script to generate simulated IoT device parameters data
+
 import json
 import random
 import datetime
@@ -20,7 +22,7 @@ def getFlowValues():
 # generate Temperature values
 def getTemperatureValues():
     data = {}
-    data['deviceValue'] = random.randint(20, 35)
+    data['deviceValue'] = random.randint(15, 35)
     data['deviceParameter'] = 'Temperature'
     data['deviceId'] = random.choice(deviceNames)
     data['dateTime'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -38,7 +40,7 @@ def getHumidityValues():
 # generate Sound values
 def getSoundValues():
     data = {}
-    data['deviceValue'] = random.randint(110, 140)
+    data['deviceValue'] = random.randint(100, 140)
     data['deviceParameter'] = 'Sound'
     data['deviceId'] = random.choice(deviceNames)
     data['dateTime'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -52,27 +54,27 @@ while True:
         data = json.dumps(getFlowValues())
         print data
         response = iot.publish(
-             topic='/sbs/devicedata',
+             topic='/sbs/devicedata/flow',
              payload=data
         ) 
     elif (0.20<= rnd < 0.55):
         data = json.dumps(getTemperatureValues())
         print data
         response = iot.publish(
-             topic='/sbs/devicedata',
+             topic='/sbs/devicedata/temperature',
              payload=data
         )
     elif (0.55<= rnd < 0.70):
         data = json.dumps(getHumidityValues())
         print data
         response = iot.publish(
-             topic='/sbs/devicedata',
+             topic='/sbs/devicedata/humidity',
              payload=data
         )
     else:
         data = json.dumps(getSoundValues())
         print data
         response = iot.publish(
-             topic='/sbs/devicedata',
+             topic='/sbs/devicedata/sound',
              payload=data     
 )
